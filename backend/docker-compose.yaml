@@ -9,12 +9,3 @@ services:
       POSTGRES_DB: carrerpro
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: sys@dmin
-
-  node_app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "4001:4001"
-    depends_on:
-      - postgres
