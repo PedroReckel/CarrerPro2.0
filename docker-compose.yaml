@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: carrerpro
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sys@dmin
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - carrerpro-network
+
+  frontend:
+    image: pedroreckel/carrerpro-2.0-frontend
+    ports:
+      - "19000:19000"
+    networks:
+      - carrerpro-network
+    
+networks:
+  carrerpro-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
