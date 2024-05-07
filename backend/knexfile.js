@@ -1,14 +1,12 @@
-require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
+const { db } = require('./.env')
 
+/**
+ * @type { Object.<string, import("knex").Knex.Config> }
+ */
 module.exports = {
+
   client: 'postgresql',
-  connection: {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_DATABASE,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD
-  },
+  connection: db,
   pool: {
     min: 2,
     max: 10
@@ -16,4 +14,5 @@ module.exports = {
   migrations: {
     tableName: 'knex_migrations'
   }
+
 };
