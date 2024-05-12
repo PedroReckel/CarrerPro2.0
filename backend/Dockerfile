@@ -17,7 +17,7 @@ RUN npm install -g pm2
 COPY . .
 
 # Exponha a porta em que a aplicação vai rodar
-EXPOSE 4001
+EXPOSE 4000
 
 # Inicie a aplicação usando o PM2
 CMD ["pm2-runtime", "start", "app.js", "--name", "knowledge-backend"]

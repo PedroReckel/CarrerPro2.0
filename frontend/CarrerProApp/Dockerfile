@@ -11,6 +11,7 @@ RUN npm install
 
 COPY . .
 
+# EXPOSE 19000 -> Trocar se der problema.
 EXPOSE 1
 EXPOSE 19001
 EXPOSE 19002
