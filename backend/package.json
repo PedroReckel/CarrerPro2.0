@@ -20,6 +20,7 @@
     "jwt-simple": "0.5.1",
     "knex": "^2.4.2",
     "moment": "2.22.2",
+    "openai": "^4.47.1",
     "passport": "0.4.0",
     "passport-jwt": "4.0.0",
     "pg": "^8.11.0",

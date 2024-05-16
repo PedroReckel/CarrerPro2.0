@@ -7,4 +7,8 @@ module.exports = app => {
         .all(app.config.passport.authenticate())
         .post(app.api.user.save)
         .get(app.api.user.get)
+
+    app.route('/dialog')
+        .all(app.config.passport.authenticate())
+        .post(app.api.dialog.send)
 }
