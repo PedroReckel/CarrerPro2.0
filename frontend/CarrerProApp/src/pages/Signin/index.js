@@ -3,12 +3,12 @@ import { View, StyleSheet, TextInput, TouchableOpacity, Image, Text, Linking } f
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { baseApiUrl } from '../../config';
 import axios from 'axios';  
 
 export default function Signin() {
 
 const navigation = useNavigation();
+const { base_api_url } = require ('../../../.env');
 
 const [email, setText] = useState('');
 const [password, setPassword] = useState('');
@@ -37,12 +37,12 @@ const signin = () => {
         password
     };
 
-    axios.post(`${baseApiUrl}/signin`, userData)
+    axios.post(`${base_api_url}/signin`, userData)
         .then(res => {
             // Armazenando as informações do usuário no AsyncStorage 
             AsyncStorage.setItem('userData', JSON.stringify(res.data));
 
-            console.log('Cadastro bem sucedido!', JSON.stringify(res.data, null, 2));
+            // console.log('Cadastro bem sucedido!', JSON.stringify(res.data, null, 2));
             navigation.navigate('Home');
         })
         .catch(error => {

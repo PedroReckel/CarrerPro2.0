@@ -3,12 +3,12 @@ import { View, StyleSheet, TextInput, TouchableOpacity, Image, Text } from 'reac
 
 import { useNavigation } from '@react-navigation/native';
 
-import { baseApiUrl } from '../../config';
 import axios from 'axios';  
 
 export default function Signup() {
 
 const navigation = useNavigation();
+const { base_api_url } = require ('../../../.env');
 
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
@@ -41,7 +41,7 @@ const signup = () => {
 
     console.log('Dados do usuário:', userData);
 
-    axios.post(`${baseApiUrl}/signup`, userData)
+    axios.post(`${base_api_url}/signup`, userData)
         .then(res => {
             console.log(`Cadastro bem sucedido! ${res.data}`);
             navigation.navigate('Signin');
