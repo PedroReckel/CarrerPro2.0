@@ -10,9 +10,9 @@ export default function Home() {
 
   const contentData = [
     { title: 'Pedro Reckel Roberte', imageSource: require('../../../assets/pedroPerfil.png'), link: 'https://www.linkedin.com/in/pedro-reckel-roberte/' },
-    { title: 'Luiz Gustavo Venancio', imageSource: require('../../../assets/alura.png'), link: 'https://www.linkedin.com/in/luizgustavolcv/' },
-    { title: 'Larissa', imageSource: require('../../../assets/devfullcicle.png'), link: 'https://curso.fullcycle.com.br/curso-fullcycle/' },
-    { title: 'Matheus', imageSource: require('../../../assets/rocketseat.png'), link: 'https://www.rocketseat.com.br'},
+    { title: 'Luiz Gustavo Venancio', imageSource: require('../../../assets/luizPerfil.png'), link: 'https://www.linkedin.com/in/luizgustavolcv/' },
+    { title: 'Larissa Moura Azeredo', imageSource: require('../../../assets/larissaPerfil.png'), link: 'https://www.linkedin.com/in/larissa-m-124161103/' },
+    { title: 'Matheus Guzzo', imageSource: require('../../../assets/matheusPerfil.png'), link: 'https://www.rocketseat.com.br'},
   ];
 
   const ExternalLink = (url) => {
@@ -49,7 +49,7 @@ export default function Home() {
         <View style={styles.buttonArea}>
           <TouchableOpacity
             style={styles.buttonSingup}
-            onPress={() => navigation.navigate('Cursos')}
+            onPress={() => navigation.navigate('Input')}
           >
             <Text style={styles.buttonText}>Próximo</Text>
           </TouchableOpacity>
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
   devsText: {
     fontSize: 18,
     color: '#000',
-    fontFamily: 'Arial',
     textAlign: 'left',
   },
   buttonArea: {

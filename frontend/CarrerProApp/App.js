@@ -6,6 +6,7 @@ import Signup from './src/pages/Signup';
 import Home from './src/pages/Home';
 import Vagas from './src/pages/Vagas';
 import Cursos from './src/pages/Cursos';
+import Input from './src/pages/Input';
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,11 @@ export default function App() {
         <Stack.Screen 
           name="Cursos" 
           component={Cursos} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="Input" 
+          component={Input} 
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
