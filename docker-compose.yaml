@@ -22,7 +22,7 @@ services:
       - carrerpro-network
     
   backend:
-    image: pedroreckel/carrerpro-2.0-backend:1.0
+    image: pedroreckel/carrerpro-2.0-backend:1.1
     ports:
       - "4000:4000"
     depends_on:

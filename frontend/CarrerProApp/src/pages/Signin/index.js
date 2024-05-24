@@ -3,7 +3,7 @@ import { View, StyleSheet, TextInput, TouchableOpacity, Image, Text, Linking } f
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import axios from 'axios';  
+import axios from 'axios';
 
 export default function Signin() {
 
@@ -85,7 +85,7 @@ const signin = () => {
             </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.footer} onPress={() => ExternalLink()}>
-            <Text>Carrer Pro Coporation © 2023</Text>
+            <Text>Carrer Pro Coporation © 2024</Text>
         </TouchableOpacity>
    </View>
   );

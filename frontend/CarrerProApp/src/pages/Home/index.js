@@ -28,13 +28,13 @@ export default function Home() {
       <Header />
 
       <View style={styles.main}>
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <Presentation presentation={"Este aplicativo utiliza inteligência artificial para ajudar você a tomar decisões sobre sua carreira. No próximo quadro, forneça uma breve descrição sobre sua trajetória profissional, seus objetivos e planos futuros"} />
+        <Presentation presentation={"Este aplicativo utiliza inteligência artificial para ajudar você a tomar decisões sobre sua carreira. No próximo quadro, forneça uma breve descrição sobre sua trajetória profissional, seus objetivos e planos futuros"} />
           
-          <View style={styles.devs}>
-            <Text style={styles.devsText}>Desenvolvedores:</Text>
-          </View>
-
+        <View style={styles.devs}>
+          <Text style={styles.devsText}>Desenvolvedores:</Text>
+        </View>
+        
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
           {contentData.map((item, index) => (
             <View style={styles.content} key={index}>
               <TouchableOpacity style={styles.cellContent} onPress={() => ExternalLink(item.link)}>

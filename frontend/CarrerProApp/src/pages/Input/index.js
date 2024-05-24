@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Text, TextInput, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import axios from 'axios';
 
 import Header from '../../components/Header';
 import Presentation from '../../components/Presentation';
 
 export default function Input() {
   const navigation = useNavigation();
+  const { base_api_url } = require ('../../../.env');
+
+  const [content, setText] = useState('');
+
+  const contentChange = (newText) => {
+      setText(newText);
+  }
+
+  const sendDialog = () => {
+    if(!content.trim()) {
+        console.log('Por favor, preencha todos os campos.');
+        return;
+    }
+  }  
+
+  const data = {
+    content
+  };
+
+  axios.post(`${base_api_url}/dialog`, data)
+    .then(res => {
+        console.log('Pergunta enviada para o chatgpt com sucesso', JSON.stringify(res.data, null, 1));
+        navigation.navigate('Home');
+    })
+    .catch(error => {
+        console.log(`Erro no envio ${error}`);
+  });
 
   return (
     <View style={styles.container}>
@@ -22,17 +51,20 @@ export default function Input() {
           <TextInput
               style={styles.input}
               multiline={true}
+              onChangeText={contentChange}
+              value={content}
           />
         </ScrollView>
 
         <View style={styles.buttonArea}>
-          <TouchableOpacity
-            style={styles.buttonSingup}
-            onPress={() => navigation.navigate('Cursos')}
-          >
-            <Text style={styles.buttonText}>Próximo</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.buttonSingup}
+                onPress={sendDialog}
+            >
+                <Text style={styles.buttonText}>Enviar</Text>
+            </TouchableOpacity>
         </View>
+
       </View>
     </View>
   );

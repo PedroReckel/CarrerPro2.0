@@ -26,6 +26,7 @@ module.exports = app => {
 
             const respAI = completion.choices[0];
 
+            console.log(respAI)
             return res.status(200).send(respAI);
         } catch (error) {
             console.error(error);
