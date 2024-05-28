@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import Presentation from '../../components/Presentation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Input() {
+export default function Resp() {
   const navigation = useNavigation();
   const { base_api_url } = require ('../../../.env');
   const [content, setText] = useState('');
@@ -52,14 +52,9 @@ export default function Input() {
       />
       <Header />
       <View style={styles.main}>
-        <Presentation presentation={"Me fale um pouco sobre sua carreira e seus planos para o futuro:"} />
+        <Presentation presentation={"Essa é a respota gerada pela nossa IA:"} />
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          <TextInput
-              style={styles.input}
-              multiline={true}
-              onChangeText={contentChange}
-              value={content}
-          />
+          
         </ScrollView>
         <View style={styles.buttonArea}>
             <TouchableOpacity

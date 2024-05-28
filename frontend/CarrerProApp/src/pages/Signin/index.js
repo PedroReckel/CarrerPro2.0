@@ -39,10 +39,9 @@ const signin = () => {
 
     axios.post(`${base_api_url}/signin`, userData)
         .then(res => {
-            // Armazenando as informações do usuário no AsyncStorage 
-            AsyncStorage.setItem('userData', JSON.stringify(res.data));
+            // Armazenando o token no AsyncStorage
+            AsyncStorage.setItem('token', res.data.token);
 
-            // console.log('Cadastro bem sucedido!', JSON.stringify(res.data, null, 2));
             navigation.navigate('Home');
         })
         .catch(error => {
