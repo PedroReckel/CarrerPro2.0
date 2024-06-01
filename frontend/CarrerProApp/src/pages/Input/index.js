@@ -38,7 +38,8 @@ export default function Input() {
       const response = await axios.post(`${base_api_url}/dialog`, data, { headers });
 
       console.log('Pergunta enviada para o chatgpt com sucesso', JSON.stringify(response.data, null, 1));
-      navigation.navigate('Home');
+      // Navegar para a tela Resp com o conteúdo da resposta como parâmetro
+      navigation.navigate('Resp', { content: response.data.message.content });
   } catch (error) {
       console.log(`Erro no envio ${error}`);
   }

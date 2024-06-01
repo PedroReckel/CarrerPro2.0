@@ -1,14 +1,11 @@
-import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, Image, StyleSheet, TouchableOpacity, Text, TextInput, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Header from '../../components/Header';
 import Presentation from '../../components/Presentation';
 
-export default function Resp() {
+export default function RouterPage() {
   const navigation = useNavigation();
-  const route = useRoute();
-
-  // const { content } = route.params;
 
   return (
     <View style={styles.container}>
@@ -18,16 +15,23 @@ export default function Resp() {
       />
       <Header />
       <View style={styles.main}>
-        <Presentation presentation={"Essa é a respota gerada pela nossa IA:"} />
+        <Presentation presentation={"Deseja fazer mais uma pergunta a IA?"} />
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           {/* <Text style={styles.airesp}>{content}</Text> */}
         </ScrollView>
         <View style={styles.buttonArea}>
             <TouchableOpacity
-                style={styles.buttonSingup}
-                onPress={() => navigation.navigate('RouterPage')}
+                style={styles.positiveButton}
+                onPress={() => navigation.navigate('Input')}
             >
-                <Text style={styles.buttonText}>Avançar</Text>
+                <Text style={styles.buttonText}>Sim</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.negativeButton}
+                onPress={() => navigation.navigate('FinalPage')}
+            >
+                <Text style={styles.buttonText}>Não</Text>
             </TouchableOpacity>
         </View>
       </View>
@@ -59,23 +63,31 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   buttonArea: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
   },
-  buttonSingup: {
-    width: '35%',
-    backgroundColor: '#0e7114',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    elevation: 5,
+  positiveButton: {
+      width: '35%',
+      backgroundColor: '#0e7114',
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginRight: 25,
+      borderRadius: 5,
+      elevation: 5,
+  },
+  negativeButton: {
+      width: '35%',
+      backgroundColor: '#b41919',
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      elevation: 5,
   },
   buttonText: {
-    color: 'white',
-    fontSize: 18,
-    textAlign: 'center',
+      color: 'white',
+      fontSize: 18,
+      textAlign: 'center',
   },
   input: {
     width: '100%',

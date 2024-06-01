@@ -8,6 +8,8 @@ import Vagas from './src/pages/Vagas';
 import Cursos from './src/pages/Cursos';
 import Input from './src/pages/Input';
 import Resp from './src/pages/Resp';
+import RouterPage from './src/pages/RouterPage';
+import FinalPage from './src/pages/FinalPage';
 
 const Stack = createStackNavigator();
 
@@ -48,6 +50,16 @@ export default function App() {
         <Stack.Screen 
           name="Resp" 
           component={Resp} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="RouterPage" 
+          component={RouterPage} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="FinalPage" 
+          component={FinalPage} 
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
