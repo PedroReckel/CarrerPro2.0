@@ -8,7 +8,7 @@ export default function Resp() {
   const navigation = useNavigation();
   const route = useRoute();
 
-  // const { content } = route.params;
+  const { content } = route.params;
 
   return (
     <View style={styles.container}>
@@ -20,7 +20,7 @@ export default function Resp() {
       <View style={styles.main}>
         <Presentation presentation={"Essa é a respota gerada pela nossa IA:"} />
         <ScrollView contentContainerStyle={styles.scrollContainer}>
-          {/* <Text style={styles.airesp}>{content}</Text> */}
+          <Text style={styles.airesp}>{content}</Text>
         </ScrollView>
         <View style={styles.buttonArea}>
             <TouchableOpacity
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    minHeight: 100, // Altura mínima da caixa de texto
+    minHeight: 100,
     borderWidth: 1,
     paddingHorizontal: 10,
     borderColor: 'gray',

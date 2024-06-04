@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, TouchableOpacity, Image, Text, Linking } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import axios from 'axios';
+import StarRating from 'react-native-star-rating-widget';
 
 export default function FinalPage() {
-
-
+    const navigation = useNavigation();
+    const [rating, setRating] = useState(0);
 
  return (
    <View style={styles.container}>
@@ -16,14 +14,21 @@ export default function FinalPage() {
             source={require('../../../assets/logoCarrerPro.png')}
         />
         
-        <Text style={styles.airesp}>Foi um prazer tê-lo por aqui!</Text>
-        <Text style={styles.airesp}>Por favor deixe sua avaliação:</Text>
-        <Text style={styles.airesp}>Agradeço pela avaliação, vonte sempre!</Text>
+        <Text style={styles.finalGreet1}>Foi um prazer tê-lo por aqui! Por favor deixe sua avaliação:</Text>
+        <Text style={styles.finalGreet2}>Agradeço pela avaliação, vonte sempre!</Text>
+
+        <StarRating
+                rating={rating}
+                onChange={setRating}
+                color="#FFD700"
+                starSize={30}
+                style={styles.starRating}
+        />
 
         <View style={styles.buttonArea}>
             <TouchableOpacity
                 style={styles.buttonSingup}
-                onPress={() => navigation.navigate('Signup')}
+                onPress={() => navigation.navigate('Signin')}
             >
                 <Text style={styles.buttonText}>Sair</Text>
             </TouchableOpacity>
@@ -57,7 +62,31 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         elevation: 5,
     },
+    finalGreet1: {
+        fontSize: 16,
+        textAlign: 'center',
+        marginVertical: 10,
+        position: 'absolute',
+        bottom: 550,
+        width: '100%',
+        color: '#fff',
+    },
+    starRating: {
+        marginBottom: 20,
+    },
+    finalGreet2: {
+        fontSize: 16,
+        textAlign: 'center',
+        marginVertical: 10,
+        position: 'absolute',
+        bottom: 155,
+        width: '100%',
+        color: '#fff',
+    },
     buttonArea: {
+        position: 'absolute',
+        bottom: 80,
+        width: '100%',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

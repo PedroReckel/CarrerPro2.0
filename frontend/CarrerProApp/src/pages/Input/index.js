@@ -65,8 +65,8 @@ export default function Input() {
         <View style={styles.buttonArea}>
             <TouchableOpacity
                 style={styles.buttonSingup}
-                // onPress={sendDialog}
-                onPress={() => navigation.navigate('Resp')}
+                onPress={sendDialog}
+                // onPress={() => navigation.navigate('Resp')}
             >
                 <Text style={styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
