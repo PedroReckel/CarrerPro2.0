@@ -15,14 +15,14 @@ services:
       - carrerpro-network
 
   frontend:
-    image: pedroreckel/carrerpro-2.0-frontend:1.4
+    image: pedroreckel/carrerpro-2.0-frontend:2.0
     ports:
       - "19000:19000"
     networks:
       - carrerpro-network
     
   backend:
-    image: pedroreckel/carrerpro-2.0-backend:1.1
+    image: pedroreckel/carrerpro-2.0-backend:2.0
     ports:
       - "4000:4000"
     depends_on:
